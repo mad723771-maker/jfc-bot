@@ -1,6 +1,10 @@
+import os
 import time
+import requests
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import threading
+
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -16,6 +20,21 @@ threading.Thread(target=run_server, daemon=True).start()
 
 print("JFC BOT START")
 
+sent = False
+
 while True:
-    print("BOT RUNNING")
-    time.sleep(30)
+    try:
+        if not sent:
+            requests.post(
+                WEBHOOK_URL,
+                json={"content": "✅ JFC BOT 起動成功"}
+            )
+            print("Discord通知送信")
+            sent = True
+
+        print("BOT RUNNING")
+        time.sleep(30)
+
+    except Exception as e:
+        print(e)
+        time.sleep(30)
