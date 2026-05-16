@@ -29,3 +29,4 @@ print("通知送信後")
 while True:
     print("BOT RUNNING")
     time.sleep(60)
+    
