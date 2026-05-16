@@ -18,32 +18,12 @@ def run_server():
 
 threading.Thread(target=run_server, daemon=True).start()
 
-print("JFC BOT START")
+def notify(message):
+    requests.post(WEBHOOK_URL, json={"content": message}, timeout=10)
 
-sent = False
+print("JFC BOT START")
+notify("✅ JFC通知BOT 起動中")
 
 while True:
-    try:
-        if not sent:
-            print(WEBHOOK_URL)
-            print("SEND START")
-            
-            requests.post(
-                WEBHOOK_URL,
-                json={"content": "✅ JFC BOT 起動成功"},
-                timeout=10
-            )
-
-            print("POST END")
-            print("Discord通知送信")
-            sent = True
-
-        print("テスト")
-        print("BOT RUNNING")
-        time.sleep(30)
-
-    except Exception as e:
-        print("ERROR:", e)
-        import traceback
-        traceback.print_exc()
-        time.sleep(30)
+    print("BOT RUNNING")
+    time.sleep(60)
