@@ -38,6 +38,7 @@ while True:
             print("Discord通知送信")
             sent = True
 
+        print("テスト")
         print("BOT RUNNING")
         time.sleep(30)
 
