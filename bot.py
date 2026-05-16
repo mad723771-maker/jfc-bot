@@ -25,8 +25,9 @@ sent = False
 while True:
     try:
         if not sent:
+            print(WEBHOOK_URL)
             print("SEND START")
-
+            
             requests.post(
                 WEBHOOK_URL,
                 json={"content": "✅ JFC BOT 起動成功"}
