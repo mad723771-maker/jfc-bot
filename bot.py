@@ -31,7 +31,10 @@ while True:
             requests.post(
                 WEBHOOK_URL,
                 json={"content": "✅ JFC BOT 起動成功"}
+                timeout=10
             )
+
+            print("POST END")
             print("Discord通知送信")
             sent = True
 
