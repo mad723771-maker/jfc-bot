@@ -36,5 +36,7 @@ while True:
         time.sleep(30)
 
     except Exception as e:
-        print(e)
-        time.sleep(30)
+    print("ERROR:", e)
+    import traceback
+    traceback.print_exc()
+    time.sleep(30)
