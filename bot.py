@@ -30,7 +30,7 @@ while True:
             
             requests.post(
                 WEBHOOK_URL,
-                json={"content": "✅ JFC BOT 起動成功"}
+                json={"content": "✅ JFC BOT 起動成功"},
                 timeout=10
             )
 
