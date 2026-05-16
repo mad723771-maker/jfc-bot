@@ -22,7 +22,9 @@ def notify(message):
     requests.post(WEBHOOK_URL, json={"content": message}, timeout=10)
 
 print("JFC BOT START")
+print("通知送信前")
 notify("✅ JFC通知BOT 起動中")
+print("通知送信後")
 
 while True:
     print("BOT RUNNING")
